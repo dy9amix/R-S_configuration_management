@@ -1,4 +1,4 @@
-from nornir import Initnornir
+from nornir import Initnornir #pylint: disable=import-error
 from nornir.plugins.tasks.networking import napalm_get
 from nornir.plugins.functions.text import print_results
 
