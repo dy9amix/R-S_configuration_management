@@ -25,4 +25,4 @@ RESULT = DEVICES.run(
     name="Backup Device configurations", path=BACKUP_PATH, task=backup_config
 )
 
-print_result(RESULT, vars=["stdout"])
+print_result(RESULT)
