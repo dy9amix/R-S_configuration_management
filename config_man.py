@@ -1,5 +1,5 @@
 #!./venv/bin/python
-""""This is a simple nornir automation script."""
+""""This is a simple nornir automation script. It is"""
 from nornir.plugins.tasks import networking #pylint: disable=import-error
 from nornir.plugins.functions.text import print_result #pylint: disable=import-error
 from nornir.plugins.tasks.files import write_file #pylint: disable=import-error
