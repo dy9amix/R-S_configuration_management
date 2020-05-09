@@ -1,12 +1,28 @@
+#!./venv/bin/python
 """"This is a simple nornir automation script. It is"""
-from nornir import InitNornir #pylint: disable=import-error
-from nornir.plugins.tasks.networking import napalm_get #pylint: disable=import-error
+from nornir.plugins.tasks import networking #pylint: disable=import-error
 from nornir.plugins.functions.text import print_result #pylint: disable=import-error
+from nornir.plugins.tasks.files import write_file #pylint: disable=import-error
+from nornir import InitNornir #pylint: disable=import-error
 
-NR = InitNornir(config_file="config.yaml")
+BACKUP_PATH = "./data/configs"
 
-RESULTS = NR.run(
-			 napalm_get,
-			 getters=['get_facts'])
+def backup_config(task, path): # pylint: disable=missing-function-docstring
 
-print_result(RESULTS)
+    res_view = task.run(task=networking.napalm_get, getters=["config"])
+    task.run(
+        task=write_file,
+        content=res_view.result["config"]["running"],
+        filename=f"{path}/{task.host}.txt",
+    )
+
+
+NR = InitNornir(config_file="./config.yaml")
+
+DEVICES = NR.filter(role="leaf")
+
+RESULT = DEVICES.run(
+    name="Backup Device configurations", path=BACKUP_PATH, task=backup_config
+)
+
+print_result(RESULT, vars=["stdout"])
