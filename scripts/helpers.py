@@ -1,3 +1,5 @@
+from nornir.core.inventory import ConnectionOptions
+
 creds = {
     "SW-1": {"username": "admin", "password": "admin"},
     "SW-2": {"username": "admin", "password": "admin"},
