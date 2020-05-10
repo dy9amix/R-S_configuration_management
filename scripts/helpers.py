@@ -10,10 +10,10 @@ creds = {
 def adapt_user_password(host):
     host.username = creds[f"{host}"]["username"]
     host.password = creds[f"{host}"]["password"]
-        host.connection_options["napalm"] = ConnectionOptions(
-        extras={
-            "optional_args": {
-                "secret":"admin"
+    host.connection_options["napalm"] = ConnectionOptions(
+     extras={
+         "optional_args": {
+             "secret":"admin"
             }
         }
     )
