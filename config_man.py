@@ -12,7 +12,7 @@ def backup_config(task, path): # pylint: disable=missing-function-docstring
     res_view = task.run(task=networking.napalm_get, getters=["config"])
     task.run(
         task=write_file,
-        content=res_view.result["config"]["running"],
+        content=res_view.result["config"]["running"],`
         filename=f"{path}/{task.host}.txt",
     )
 
