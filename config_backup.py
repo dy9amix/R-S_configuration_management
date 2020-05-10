@@ -19,7 +19,7 @@ def backup_config(task, path): # pylint: disable=missing-function-docstring
 
 NR = InitNornir(config_file="./config.yaml")
 
-DEVICES = NR.filter(role="switch")
+DEVICES = NR.filter(role="leaf")
 
 RESULT = DEVICES.run(
     name="Backup Device configurations", path=BACKUP_PATH, task=backup_config

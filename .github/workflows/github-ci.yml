@@ -22,12 +22,13 @@ jobs:
     - uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
-    - name: Check scripts for syntax error
-      run: python3 -m pylint config_man.py
+    - name: Validate
+      run: python3 -m pylint config_man.py,
+           python3 -m pylint config_backup.py
     
     # Runs a set of commands using the runners shell
-    - name: Run nornir configuration script
+    - name: Deploy to production
       run: python3 config_man.py
     
-    - name: Run nornir backup script
+    - name: Configuration backup
       run: python3 config_backup.py
