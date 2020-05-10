@@ -94,4 +94,3 @@ Traceback (most recent call last):
   File "C:\Python38\lib\site-packages\napalm\base\__init__.py", line 74, in get_network_driver
     raise ModuleImportError("Please provide a valid driver name.")
 napalm.base.exceptions.ModuleImportError: Please provide a valid driver name.
-
