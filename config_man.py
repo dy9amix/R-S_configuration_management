@@ -8,7 +8,7 @@ from nornir import InitNornir #pylint: disable=import-error
 def sw_a_config(task): # pylint: disable=missing-function-docstring
 
     res_view = task.run(task=networking.napalm_configure,
-                        dry_run=False,
+                        dry_run=True,
                         filename="./IOS_config/SW-1.conf"
                         )
     print_result(res_view.result)
