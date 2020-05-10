@@ -26,5 +26,8 @@ jobs:
       run: python3 -m pylint config_man.py
     
     # Runs a set of commands using the runners shell
-    - name: Run nornir script
+    - name: Run nornir configuration script
       run: python3 config_man.py
+    
+    - name: Run nornir backup script
+      run: python3 config_backup.py
