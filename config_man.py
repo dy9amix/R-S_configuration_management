@@ -1,5 +1,5 @@
 #!./venv/bin/python
-""""This is a script automates configuration managaement for the GNS3 production network defined."""
+""""This is a script automates configuration managaement for the GNS3 production network defined. ned duss"""
 from nornir.plugins.tasks import networking #pylint: disable=import-error
 from nornir.plugins.functions.text import print_result #pylint: disable=import-error
 from nornir import InitNornir #pylint: disable=import-error
